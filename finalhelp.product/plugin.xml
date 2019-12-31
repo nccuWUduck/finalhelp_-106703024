@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="finalhelp.product.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="finalhelp.product.Perspective"
+            name="RCP Perspective"
+            id="finalhelp.product.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            icon="icons/sample2.gif"
+            class="finalhelp.product.View"
+            name="Message"
+            id="finalhelp.product.view">
+      </view>
+      <view
+            allowMultiple="true"
+            icon="icons/sample3.gif"
+            class="finalhelp.product.NavigationView"
+            name="Mailboxes"
+            id="finalhelp.product.navigationView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="finalhelp.product.category"
+            name="Mail">
+      </category>
+      <command
+            description="Opens a mailbox"
+            name="Open Mailbox"
+            id="finalhelp.product.open"
+            categoryId="finalhelp.product.category">
+      </command>
+      <command
+            description="Open a message dialog"
+            name="Open Message Dialog"
+            id="finalhelp.product.openMessage"
+            categoryId="finalhelp.product.category">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="finalhelp.product.open"
+            sequence="CTRL+SHIFT+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="finalhelp.product.openMessage"
+            sequence="CTRL+SHIFT+M"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="org.eclipse.ui.file.exit"
+            sequence="CTRL+SHIFT+Q"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="help APP"
+            application="finalhelp.product.application">
+         <property
+               name="aboutText"
+               value="RCP Mail template created by PDE">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/sample2.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="product_lg.gif">
+         </property>
+         <property
+               name="appName"
+               value="help APP">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
